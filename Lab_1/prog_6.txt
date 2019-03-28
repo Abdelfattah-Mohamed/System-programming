@@ -1,0 +1,22 @@
+.23456789012345678901234567890123456
+.Label.  Opcode  The  O p e r a n d
+.
+PROB5    START   0000
+         LDS     #0
+         LDA     #0
+DLOOP    TD      INDEV
+         JEQ     DLOOP
+         RD      INDEV
+         SUB     #48
+         MUL     #10
+         RMO     A,S
+         LDA     #0
+DLOOP2   TD      INDEV
+         JEQ     DLOOP2
+         RD      INDEV
+         SUB     #48
+         ADDR    S,A
+         J       *
+.
+INDEV    BYTE    X'F2'
+         END

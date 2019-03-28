@@ -1,0 +1,15 @@
+.23456789012345678901234567890123456
+. ALT & Enter to toggle full screen
+.Label.  Opcode  The  O p e r a n d
+.
+PROB4    START   0100
+         LDX     #0
+LOOP     LDCH    BLANK
+         STCH    ARRAY,X
+         TIX     #100
+         JLT     LOOP
+         J       *
+.
+BLANK    BYTE    C''
+ARRAY    RESB    100
+         END

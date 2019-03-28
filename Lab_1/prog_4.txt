@@ -1,0 +1,19 @@
+.23456789012345678901234567890123456
+. ALT & Enter to toggle full screen
+.Label.  Opcode  The  O p e r a n d
+.
+PROB4    START   0000
+         LDX     #0
+         LDT     THREE
+         LDS     #300
+LOOP     LDA     ZERO
+         STA     ARRAY,X
+         ADDR    T,X
+         COMPR   X,S
+         JLT     LOOP
+         J       *
+.
+ZERO     WORD    0
+ARRAY    RESW    100
+THREE    WORD    3
+         END

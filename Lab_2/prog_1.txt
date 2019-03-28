@@ -1,0 +1,25 @@
+.23456789012345678901234567890123456
+.Label.  Opcode  The  O p e r a n d
+.
+PROB1    START   0000
+         LDX     #0
+         LDCH    CERTAIN,X
+         RMO     A,S
+         LDCH    NULL
+LOOP     LDCH    STRING,X
+         COMPR   A,S
+         JEQ     FOUND
+         TIX     COUNTER
+         JLT     LOOP
+         JEQ     UNFOUND
+FOUND    LDA     #STRING
+         ADDR    X,A
+         J       END
+UNFOUND  LDA     NULL
+END      J       *
+.
+STRING   BYTE    C'System prog'
+CERTAIN  BYTE    C'y'
+COUNTER  WORD    11
+NULL     BYTE    C''
+         END

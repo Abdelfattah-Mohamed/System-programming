@@ -1,0 +1,31 @@
+.23456789012345678901234567890123456
+.Label.  Opcode  The  O p e r a n d
+.
+PROB5    START   0000
+RLOOP    LDA     #0
+DRLOOP   TD      INDEV
+         JEQ     DRLOOP
+         RD      INDEV
+         COMP    #4
+         JEQ     END
+         JSUB    CONVERT
+         JSUB    DWLOOP
+         J       RLOOP
+CONVERT  COMP    #96
+         JGT     UP
+         RSUB
+UP       COMP    #123
+         JLT     DOWN
+         RSUB
+DOWN     SUB     #32
+         RSUB
+DWLOOP   TD      OUTDEV
+         JEQ     DWLOOP
+         WD      OUTDEV
+         RSUB
+END      J       *
+.
+INDEV    BYTE    X'F1'
+OUTDEV   BYTE    X'04'
+TEMP     RESB    1
+         END

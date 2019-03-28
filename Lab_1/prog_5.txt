@@ -1,0 +1,21 @@
+.23456789012345678901234567890123456
+.Label.  Opcode  The  O p e r a n d
+.
+PROB5    START   0000
+         LDS     COUNTER
+         LDT     #1
+LOOP     LDA     #0
+DLOOP    TD      INDEV
+         JEQ     DLOOP
+         RD      INDEV
+         COMP    #4
+         ADDR    T,S
+         JGT     LOOP
+         JLT     LOOP
+         SUBR    T,S
+         STS     COUNTER
+         J       *
+.
+INDEV    BYTE    X'F1'
+COUNTER  WORD    0
+         END
